@@ -14,6 +14,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    // return view('welcome');
+    //return view('welcome');
     return "Hallo namaku adalah Hasya Putri Anika, Salam Kenal";
+});
+
+//route baru
+Route::get('/about', function () {
+    //return view('welcome');
+    return "<h2>Ini adalah laman About</h2>";
 });
