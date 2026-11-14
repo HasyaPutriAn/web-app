@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Routing\Controller as BaseController;
 
-class Web extends Controller {
-    public function home() {
-        return "<h1>Ini adalah Controllers Web</h1>";
-    }
+abstract class Controller extends BaseController
+{
+    use AuthorizesRequests, ValidatesRequests;
 }

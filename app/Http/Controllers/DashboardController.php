@@ -2,29 +2,35 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
 class DashboardController extends Controller
 {
-    public function home() {
-        return "<h1>Selamat Datang di Olshop Kami</h1>";
+    private const PRODUCTS = [
+        ['name' => 'Sepatu', 'price' => 300000, 'description' => 'Nyaman dipakai dari pagi sampai sore.', 'visual' => 1],
+        ['name' => 'Baju', 'price' => 200000, 'description' => 'Pilihan simpel untuk menemani aktivitas harian.', 'visual' => 2],
+        ['name' => 'Celana', 'price' => 150000, 'description' => 'Potongan santai yang mudah dipadukan.', 'visual' => 3],
+    ];
+
+    public function home()
+    {
+        return view('home', ['products' => self::PRODUCTS]);
     }
 
-    public function product() {
-        return "
-        <h2>Product</h2>
-        <ul>
-            <li><a href='/produk/detail/300000'>Sepatu</a></li>
-            <li><a href='/produk/detail/200000'>Baju</a></li>
-            <li><a href='/produk/detail/150000'>Celana</a></li>
-        </ul>";
+    public function product()
+    {
+        return view('products.index', ['products' => self::PRODUCTS]);
     }
 
-    public function detail($harga) {
-        return "<h2>Detail Produk</h2><p>Harga: Rp ".number_format($harga, 0, ',', '.')."</p>";
+    public function detail(int $harga)
+    {
+        $product = collect(self::PRODUCTS)->firstWhere('price', $harga);
+
+        abort_if($product === null, 404);
+
+        return view('products.show', ['product' => $product]);
     }
 
-    public function about() {
-        return "<h2>About</h2><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>";
+    public function about()
+    {
+        return view('about');
     }
 }
