@@ -69,3 +69,32 @@ text-align: left;
 .employe-table th {
 background-color: #e8f1fa;
 }
+.employe-button {
+display: inline-block;
+padding: 8px 12px;
+border: 0;
+background-color: navy;
+color: white;
+text-decoration: none;
+cursor: pointer;
+}
+.employe-success {
+color: #176b36;
+}
+.employe-error {
+margin: 4px 0 12px;
+color: #a32020;
+}
+.employe-form {
+display: grid;
+gap: 8px;
+max-width: 420px;
+}
+.employe-form input,
+.employe-form textarea,
+.employe-form select {
+box-sizing: border-box;
+width: 100%;
+padding: 8px;
+border: 1px solid #9aa8b8;
+}

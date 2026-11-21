@@ -2,6 +2,11 @@
 
 @section('content')
     <h2>{{ $judul }}</h2>
+    <p><a class="employe-button" href="{{ route('employe.create') }}">Tambah data pegawai</a></p>
+
+    @if (session('success'))
+        <p class="employe-success">{{ session('success') }}</p>
+    @endif
 
     @if ($employes->isEmpty())
         <p>Belum ada data pegawai.</p>

@@ -11,6 +11,8 @@ Route::get('/home', [DashboardController::class, 'storefront'])->name('home');
 Route::get('/dashboard', [DashboardController::class, 'home']);
 Route::get('/gallery', [DashboardController::class, 'gallery']);
 Route::get('/employe', [EmployeController::class, 'index'])->name('employe.index');
+Route::get('/employe/create', [EmployeController::class, 'create'])->name('employe.create');
+Route::post('/employe/store', [EmployeController::class, 'store'])->name('employe.store');
 Route::get('/product', [DashboardController::class, 'product'])->name('product');
 Route::get('/produk/detail/{harga}', [DashboardController::class, 'detail'])
     ->whereNumber('harga')
