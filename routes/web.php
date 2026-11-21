@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\EmployeController;
 use App\Http\Controllers\KalkulatorController;
 use App\Http\Controllers\MahasiswaController;
 
@@ -9,6 +10,7 @@ Route::get('/', [DashboardController::class, 'storefront']);
 Route::get('/home', [DashboardController::class, 'storefront'])->name('home');
 Route::get('/dashboard', [DashboardController::class, 'home']);
 Route::get('/gallery', [DashboardController::class, 'gallery']);
+Route::get('/employe', [EmployeController::class, 'index'])->name('employe.index');
 Route::get('/product', [DashboardController::class, 'product'])->name('product');
 Route::get('/produk/detail/{harga}', [DashboardController::class, 'detail'])
     ->whereNumber('harga')

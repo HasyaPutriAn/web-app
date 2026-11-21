@@ -56,3 +56,16 @@ color: white;
 background-color: lightblue; 
 color: navy; 
 }
+.employe-table {
+width: 100%;
+border-collapse: collapse;
+}
+.employe-table th,
+.employe-table td {
+padding: 8px;
+border: 1px solid #b8c5d6;
+text-align: left;
+}
+.employe-table th {
+background-color: #e8f1fa;
+}
