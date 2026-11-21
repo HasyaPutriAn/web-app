@@ -46,4 +46,32 @@ class EmployeController extends Controller
             ->route('employe.index')
             ->with('success', 'Data pegawai berhasil disimpan.');
     }
+
+    public function show(Employe $employe)
+    {
+        return view('employe.edit', [
+            'judul' => 'Edit data Pegawai',
+            'employe' => $employe,
+        ]);
+    }
+
+    public function update(Request $request, Employe $employe)
+    {
+        $validated = $request->validate([
+            'nama' => ['required', 'string', 'max:30'],
+            'alamat' => ['required', 'string'],
+            'gender' => ['required', 'in:L,P'],
+            'gaji' => ['required', 'integer', 'min:0'],
+        ]);
+
+        $employe->nama = $validated['nama'];
+        $employe->alamat = $validated['alamat'];
+        $employe->gender = $validated['gender'];
+        $employe->gaji = $validated['gaji'];
+        $employe->save();
+
+        return redirect()
+            ->route('employe.index')
+            ->with('success', 'Data pegawai berhasil diperbarui.');
+    }
 }

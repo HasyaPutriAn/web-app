@@ -30,7 +30,7 @@
                         <td>{{ $row->alamat }}</td>
                         <td>{{ $row->gender }}</td>
                         <td>{{ $row->gaji }}</td>
-                        <td>&mdash;</td>
+                        <td><a href="{{ route('employe.edit', $row) }}">Edit</a></td>
                     </tr>
                 @endforeach
             </tbody>
