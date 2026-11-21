@@ -16,6 +16,7 @@ Route::post('/employe/store', [EmployeController::class, 'store'])->name('employ
 Route::get('/employe/edit/{employe}', [EmployeController::class, 'show'])->name('employe.edit');
 Route::put('/employe/{employe}', [EmployeController::class, 'update'])->name('employe.update');
 Route::delete('/employe/{employe}', [EmployeController::class, 'destroy'])->name('employe.destroy');
+Route::resource('admin', \App\Http\Controllers\AdminController::class);
 Route::get('/product', [DashboardController::class, 'product'])->name('product');
 Route::get('/produk/detail/{harga}', [DashboardController::class, 'detail'])
     ->whereNumber('harga')

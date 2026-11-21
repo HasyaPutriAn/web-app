@@ -20,6 +20,7 @@
             <nav class="main-nav" aria-label="Navigasi utama">
                 <a href="{{ route('home') }}">Home</a>
                 <a href="{{ route('product') }}">Produk</a>
+                <a href="{{ route('admin.index') }}">Admin</a>
                 <a href="{{ route('mahasiswa.index') }}">Mahasiswa</a>
                 <a href="{{ route('kalkulator.home') }}">Kalkulator</a>
                 <a href="{{ route('kalkulator.segitiga') }}">Segitiga</a>
