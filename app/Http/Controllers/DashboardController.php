@@ -12,7 +12,17 @@ class DashboardController extends Controller
 
     public function home()
     {
-        return view('home', ['products' => self::PRODUCTS]);
+        return view('home', ['judul' => 'Laman Home']);
+    }
+
+    public function storefront()
+    {
+        return view('storefront', ['products' => self::PRODUCTS]);
+    }
+
+    public function gallery()
+    {
+        return view('gallery', ['judul' => 'Laman Gallery']);
     }
 
     public function product()
