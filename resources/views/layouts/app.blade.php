@@ -18,6 +18,7 @@
                 <span>web laravel Hasya</span>
             </a>
             <nav class="main-nav" aria-label="Navigasi utama">
+                @auth
                 <a href="{{ route('home') }}">Home</a>
                 <a href="{{ route('product') }}">Produk</a>
                 <a href="{{ route('admin.index') }}">Admin</a>
@@ -25,6 +26,13 @@
                 <a href="{{ route('kalkulator.home') }}">Kalkulator</a>
                 <a href="{{ route('kalkulator.segitiga') }}">Segitiga</a>
                 <a href="{{ route('about') }}">Tentang</a>
+                <form action="{{ route('logout') }}" method="POST">
+                    @csrf
+                    <button class="nav-logout" type="submit">Logout</button>
+                </form>
+                @else
+                    <a href="{{ route('login') }}">Login</a>
+                @endauth
             </nav>
         </div>
     </header>
