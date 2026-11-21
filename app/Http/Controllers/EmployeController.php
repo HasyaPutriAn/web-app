@@ -74,4 +74,13 @@ class EmployeController extends Controller
             ->route('employe.index')
             ->with('success', 'Data pegawai berhasil diperbarui.');
     }
+
+    public function destroy(Employe $employe)
+    {
+        $employe->delete();
+
+        return redirect()
+            ->route('employe.index')
+            ->with('success', 'Data pegawai berhasil dihapus.');
+    }
 }

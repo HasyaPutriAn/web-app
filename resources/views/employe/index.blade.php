@@ -30,7 +30,14 @@
                         <td>{{ $row->alamat }}</td>
                         <td>{{ $row->gender }}</td>
                         <td>{{ $row->gaji }}</td>
-                        <td><a href="{{ route('employe.edit', $row) }}">Edit</a></td>
+                        <td>
+                            <a href="{{ route('employe.edit', $row) }}">Edit</a>
+                            <form action="{{ route('employe.destroy', $row) }}" method="POST" style="display: inline-block;">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit">Delete</button>
+                            </form>
+                        </td>
                     </tr>
                 @endforeach
             </tbody>
